@@ -10,6 +10,7 @@ class Pony
 		Pony(std::string name, std::string color, int age);
 		~Pony(void);
 		void sayHi(void);
+	private:
 		std::string name;
 		std::string color;
 		int age;
