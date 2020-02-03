@@ -36,10 +36,9 @@ Par exemple, pour 16 bits avec 7 bits pour la partie decimale (note Fixed<16, 7>
 
 -5.625:
 
-1       0 0 0 0 0 1 0 1   .  1 0 1 0 0 0 0
-
-Signe - Partie entiere    -  Partie decimale
-
--      		5                625 (2^-1 + 2^-3)
+| Signe | Partie entiere | Partie decimale |
+| --- | --- | --- |
+| 1 | 0 0 0 0 1 0 1 | 1 0 1 0 0 0 0|
+| - | 1 * 2^0 + 1 * 2^2 = 5 | 1 * 2^-1 + 1 * 2^-3 = .625 |
 
 Pour les comparaisons, c'est facile car comme on stock les bits dans un Integer et que les bits de poid fort sont aussi au debut, on peut simplement comparer les deux ints.
