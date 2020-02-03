@@ -32,10 +32,6 @@ int find_and_replace(std::string sourceFile, std::string outputFile, std::string
 		if (lineBuffer.size() > 0)
 	        output << std::endl;
     }
-    if (lineBuffer == "")
-    {
-        output << std::endl;
-    }
     input.close();
     output.close();
 
