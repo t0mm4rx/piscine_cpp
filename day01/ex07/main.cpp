@@ -34,7 +34,6 @@ int find_and_replace(std::string sourceFile, std::string outputFile, std::string
     }
     input.close();
     output.close();
-
 	return (0);
 }
 
