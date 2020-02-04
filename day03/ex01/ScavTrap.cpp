@@ -11,22 +11,22 @@ ScavTrap::ScavTrap(std::string name)
 	this->rangedAttackDamage = 15;
 	this->armorDamageReduction = 3;
 	this->level = 1.0;
-	std::cout << this->name << ": Hi ! I'm ready !" << std::endl;
+	std::cout << this->name << ": Hey !" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << this->name << ": Oh no, I died :(" << std::endl;
+	std::cout << this->name << ": Bye..." << std::endl;
 }
 
 void		ScavTrap::rangedAttack(std::string const &target)
 {
-	std::cout << this->name << " attacked " << target << " with a bow, causing " << this->rangedAttackDamage << " damages." << std::endl;
+	std::cout << this->name << " attacked " << target << " with a plastic rocket launcher, causing " << this->rangedAttackDamage << " damages." << std::endl;
 }
 
 void		ScavTrap::meleeAttack(std::string const &target)
 {
-	std::cout << this->name << " attacked " << target << " with an axe, causing " << this->meleeAttackDamage << " damages." << std::endl;
+	std::cout << this->name << " attacked " << target << " with an screwdriver, causing " << this->meleeAttackDamage << " damages." << std::endl;
 }
 
 void		ScavTrap::takeDamage(unsigned int damage)
