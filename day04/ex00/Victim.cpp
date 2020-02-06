@@ -14,3 +14,14 @@ void Victim::getPolymorphed(void) const
 {
 	std::cout << this->name << " was just polymorphed in a cute little sheep!" << std::endl;
 }
+
+std::string Victim::getName(void) const
+{
+	return (this->name);
+}
+
+std::ostream &operator << (std::ostream &stream, Victim const &target)
+{
+	stream << "I'm " << target.getName() << " and I like otters !\n";
+	return (stream);
+}

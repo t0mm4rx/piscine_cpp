@@ -1,17 +1,21 @@
-#ifndef Vitcim_hpp
-# define Vitcim_hpp
+#ifndef Victim_hpp
+# define Victim_hpp
 
 #include <string>
 #include <iostream>
+#include <sstream>
 
-class Vitcim
+class Victim
 {
 	public:
-		Victim(std::string name, std::string title);
+		Victim(std::string name);
 		~Victim(void);
-		void getPolymorphed(void) const;
-	private:
+		virtual void getPolymorphed(void) const;
+		std::string getName(void) const;
+	protected:
 		std::string name;
 };
+
+std::ostream& operator << (std::ostream &out, Victim const &target);
 
 #endif
