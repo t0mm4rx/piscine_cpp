@@ -1,6 +1,6 @@
 TARGET=test
-OBJS=iter.o
-SRCS=iter.cpp
+OBJS=main.o
+SRCS=main.cpp
 FLAGS=-Werror -Wextra -Wall -fsanitize=address -g3
 
 convert: $(OBJS)
