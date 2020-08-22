@@ -1,25 +1,25 @@
-NAME = replace
+NAME=replace
+FLAGS=-Werror -Wall -Wextra
 
-SRC = main.cpp
+SRC = ${wildcard *.cpp}
 OBJ = $(SRC:.cpp=.o)
-
-FLAGS = -Werror -Wextra -Wall -fsanitize=address -g3
 
 all: $(NAME)
 
 %.o: %.c
-	clang++ %(FLAGS) $@ -c $<
+	clang++ $(FLAGS) $@ -c $<
 
 $(NAME): $(OBJ)
 	clang++ $(FLAGS) $(OBJ) -o $(NAME)
 
 run: $(NAME)
-	./$(NAME) test replace REPLACE
+	./$(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
+	rm -f *.replace
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

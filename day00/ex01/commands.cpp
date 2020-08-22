@@ -49,6 +49,11 @@ void add(Contact contacts[8], int *index)
 {
 	Contact c;
 
+	if (*index >= 8)
+	{
+		std::cout << "All 8 contacts already registed!" << std::endl << std::endl;
+		return ;
+	}
 	std::cin.ignore();
 	std::cout << "First name: ";
 	std::getline(std::cin, c.first_name);
@@ -73,7 +78,7 @@ void add(Contact contacts[8], int *index)
 	std::cout << "Darkest secret: ";
 	std::getline(std::cin, c.darkest_secret);
 	contacts[*index] = c;
-	if (*index < 7)
+	if (*index < 8)
 		(*index)++;
 	std::cout << BOLD << "Contact added !" << RESET << std::endl << std::endl;
 }

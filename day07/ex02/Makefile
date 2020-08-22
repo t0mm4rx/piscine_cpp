@@ -1,10 +1,24 @@
-TARGET=test
-OBJS=main.o
-SRCS=main.cpp
-FLAGS=-Werror -Wextra -Wall -fsanitize=address -g3
+NAME=bin
+FLAGS=-Werror -Wall -Wextra
 
-convert: $(OBJS)
-	clang++ $(FLAGS) $(OBJS) -o $(TARGET)
+SRC = ${wildcard *.cpp}
+OBJ = $(SRC:.cpp=.o)
 
-$(OBJS): $(SRCS)
-	clang++ -c $(SRCS)
+all: $(NAME)
+
+%.o: %.c
+	clang++ $(FLAGS) $@ -c $<
+
+$(NAME): $(OBJ)
+	clang++ $(FLAGS) $(OBJ) -o $(NAME)
+
+run: $(NAME)
+	./$(NAME)
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all

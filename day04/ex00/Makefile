@@ -1,7 +1,7 @@
-NAME=convert
+NAME=bin
 FLAGS=-Werror -Wall -Wextra
 
-SRC = ${wildcard *.cpp}
+SRC = main.cpp Peon.cpp Sorcerer.cpp Victim.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -16,7 +16,7 @@ run: $(NAME)
 	./$(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)

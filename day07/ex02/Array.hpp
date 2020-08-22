@@ -34,7 +34,7 @@ template <typename T> class Array {
 				this->array = new T[target.size()];
 			}
 
-			this->n target target.size();
+			this->n = target.size();
 			for (int i = 0; i < target.size(); i++)
 				this->array[i] = target.array[i];
 
