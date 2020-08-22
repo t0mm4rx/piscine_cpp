@@ -29,11 +29,19 @@ void search(Contact contacts[8], int *index)
 	std::cin.ignore();
 	std::cout << "Enter the index of the contact: ";
 	std::getline(std::cin, buffer);
-	detail = std::stoi(buffer);
-	if (detail >= 0 && detail <= *index)
+	try {
+		detail = std::stoi(buffer);
+		if (detail >= 0 && detail < *index)
+		{
+			contacts[detail].print();
+			std::cout << std::endl;
+		}
+		else
+			std::cout << "No contact with this id!" << std::endl << std::endl;
+	}
+	catch (std::invalid_argument)
 	{
-		contacts[detail].print();
-		std::cout << std::endl;
+		std::cout << "Invalid index!" << std::endl << std::endl;
 	}
 }
 
