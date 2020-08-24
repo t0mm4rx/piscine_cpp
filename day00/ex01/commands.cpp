@@ -10,18 +10,20 @@ void listen_user(Contact contacts[8], int *index)
 
 void handle_command(std::string cmd, Contact contacts[8], int *index)
 {
-	if (cmd == "EXIT")
+	if (to_upper(cmd) == "EXIT")
 		exit(0);
-	if (cmd == "ADD")
+	else if (to_upper(cmd) == "ADD")
 		add(contacts, index);
-	if (cmd == "SEARCH")
+	else if (to_upper(cmd) == "SEARCH")
 		search(contacts, index);
+	else if (cmd != "")
+		std::cout << "Not a valid command!" << std::endl;
 }
 
 void search(Contact contacts[8], int *index)
 {
-	std::string buffer;
-	int detail;
+	std::string	buffer;
+	int					detail;
 
 	print_contacts(contacts, index);
 	if (*index == 0)
@@ -47,7 +49,8 @@ void search(Contact contacts[8], int *index)
 
 void add(Contact contacts[8], int *index)
 {
-	Contact c;
+	Contact			c;
+	std::string	buffer;
 
 	if (*index >= 8)
 	{
@@ -55,28 +58,39 @@ void add(Contact contacts[8], int *index)
 		return ;
 	}
 	std::cin.ignore();
-	std::cout << "First name: ";
-	std::getline(std::cin, c.first_name);
-	std::cout << "Last name: ";
-	std::getline(std::cin, c.last_name);
-	std::cout << "Nickname: ";
-	std::getline(std::cin, c.nick_name);
-	std::cout << "Login: ";
-	std::getline(std::cin, c.login);
-	std::cout << "Postal address: ";
-	std::getline(std::cin, c.postal_address);
-	std::cout << "Mail: ";
-	std::getline(std::cin, c.mail);
-	std::cout << "Phone: ";
-	std::getline(std::cin, c.phone);
-	std::cout << "Birthday: ";
-	std::getline(std::cin, c.birthday);
-	std::cout << "Favorite meal: ";
-	std::getline(std::cin, c.favorite_meal);
-	std::cout << "Underwear color: ";
-	std::getline(std::cin, c.underwear_color);
-	std::cout << "Darkest secret: ";
-	std::getline(std::cin, c.darkest_secret);
+	std::cout << std::setw(20) << "First name: ";
+	std::getline(std::cin, buffer);
+	c.set_first_name(buffer);
+	std::cout << std::setw(20) << "Last name: ";
+	std::getline(std::cin, buffer);
+	c.set_last_name(buffer);
+	std::cout << std::setw(20) << "Nickname: ";
+	std::getline(std::cin, buffer);
+	c.set_nick_name(buffer);
+	std::cout << std::setw(20) << "Login: ";
+	std::getline(std::cin, buffer);
+	c.set_login(buffer);
+	std::cout << std::setw(20) << "Postal address: ";
+	std::getline(std::cin, buffer);
+	c.set_postal_address(buffer);
+	std::cout << std::setw(20) << "Mail: ";
+	std::getline(std::cin, buffer);
+	c.set_mail(buffer);
+	std::cout << std::setw(20) << "Phone: ";
+	std::getline(std::cin, buffer);
+	c.set_phone(buffer);
+	std::cout << std::setw(20) << "Birthday: ";
+	std::getline(std::cin, buffer);
+	c.set_birthday(buffer);
+	std::cout << std::setw(20) << "Favorite meal: ";
+	std::getline(std::cin, buffer);
+	c.set_favorite_meal(buffer);
+	std::cout << std::setw(20) << "Underwear color: ";
+	std::getline(std::cin, buffer);
+	c.set_underwear_color(buffer);
+	std::cout << std::setw(20) << "Darkest secret: ";
+	std::getline(std::cin, buffer);
+	c.set_darkest_secret(buffer);
 	contacts[*index] = c;
 	if (*index < 8)
 		(*index)++;
@@ -99,11 +113,20 @@ void print_contacts(Contact contacts[8], int *index)
 	for (int i = 0; i < *index; i++)
 	{
 		std::cout << "|" << std::setw(10) << std::left << i << "|";
-		std::cout << std::setw(10) << std::left << truncate(contacts[i].first_name) << "|";
-		std::cout << std::setw(10) << std::left << truncate(contacts[i].last_name) << "|";
-		std::cout << std::setw(10) << std::left << truncate(contacts[i].login) << "|";
+		std::cout << std::setw(10) << std::left << truncate(contacts[i].get_first_name()) << "|";
+		std::cout << std::setw(10) << std::left << truncate(contacts[i].get_last_name()) << "|";
+		std::cout << std::setw(10) << std::left << truncate(contacts[i].get_login()) << "|";
 		std::cout << std::endl;
 		std::cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾" << std::endl;
 	}
 	std::cout << std::endl;
+}
+
+std::string to_upper(std::string str)
+{
+	int str_len = str.length();
+
+	for (int i = 0; i < str_len; i++)
+		str[i] = std::toupper(str[i]);
+	return str;
 }
