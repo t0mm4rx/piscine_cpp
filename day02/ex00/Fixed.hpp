@@ -6,9 +6,9 @@ class Fixed {
 		int					rawBits;
 		static const int	bitsNumber = 8;
 	public:
-	    Fixed();
-	    ~Fixed();
-		Fixed(Fixed &source);
+							Fixed();
+							~Fixed();
+							Fixed(Fixed &source);
 		Fixed				&operator=(Fixed &other);
 		int					getRawBits(void) const;
 		void				setRawBits(int const raw);
