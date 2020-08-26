@@ -6,10 +6,10 @@
 
 class Human {
 	public:
-		Brain getBrain(void);
-		std::string identify(void);
+		Brain		getBrain(void);
+		std::string	identify(void);
 	private:
-		Brain brain;
+		Brain		brain;
 };
 
 #endif

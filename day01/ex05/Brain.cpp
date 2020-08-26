@@ -3,6 +3,7 @@
 Brain::Brain(void)
 {
 	std::stringstream buffer;
+
 	buffer << this;
 	this->address = buffer.str();
 }

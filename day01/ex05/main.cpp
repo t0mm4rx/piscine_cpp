@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Human.hpp"
 
-int main()
+int main(void)
 {
 	Human bob;
 	std::cout << bob.identify() << std::endl;

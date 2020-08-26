@@ -2,11 +2,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 
 int find_and_replace(std::string sourceFile, std::string outputFile, std::string find, std::string replace)
 {
 	std::ifstream			input(sourceFile);
-	std::ofstream			output(outputFile);
 	std::string				lineBuffer;
 	std::string::size_type	n;
 
@@ -15,6 +15,7 @@ int find_and_replace(std::string sourceFile, std::string outputFile, std::string
 		std::cout << "Cannot open " << sourceFile << std::endl;
 		return (1);
 	}
+	std::ofstream output(outputFile);
 	if (output.fail())
 	{
 		std::cout << "Cannot create output file, check rights of current folder" << std::endl;
@@ -42,7 +43,12 @@ int main(int argc, char **argv)
 	if (argc != 4)
 	{
 		std::cout << "Error ! Usage: ./replace <file> <find> <replace>" << std::endl;
-		return (0);
+		return (2);
+	}
+	if (!strlen(argv[2]) || !strlen(argv[3]))
+	{
+		std::cout << "Error: strings shouldn't be empty" << std::endl;
+		return (2);
 	}
 	return (find_and_replace(argv[1], std::string(argv[1]) + std::string(".replace"), argv[2], argv[3]));
 }

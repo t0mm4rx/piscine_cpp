@@ -1,10 +1,7 @@
 #include "Pony.hpp"
 
-Pony::Pony(std::string name, std::string color, int age)
+Pony::Pony(std::string name, std::string color, int age) : name(name), color(color), age(age)
 {
-	this->name = name;
-	this->color = color;
-	this->age = age;
 }
 
 void Pony::sayHi(void)

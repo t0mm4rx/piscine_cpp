@@ -25,12 +25,12 @@ void ZombieHorde::announce(void)
 
 Zombie *ZombieHorde::newZombie(std::string name)
 {
-    return (new Zombie(name, this->type));
+	return (new Zombie(name, this->type));
 }
 
 std::string ZombieHorde::randomName(void)
 {
-    std::string names[] = {"Gabrielle", "Charlie", "Aimee", "Jacqueline", "Adele", "Marie", "Harris", "Jessie", "Calvin", "John"};
+	std::string names[] = {"Gabrielle", "Charlie", "Aimee", "Jacqueline", "Adele", "Marie", "Harris", "Jessie", "Calvin", "John", "Jordan"};
 
-    return (names[rand() % 10]);
+	return (names[rand() % 11]);
 }

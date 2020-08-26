@@ -5,7 +5,7 @@ int main()
 {
 	std::string str = "HI THIS IS BRAIN";
 	std::string *ptr = &str;
-	std::string ref = *ptr;
+	std::string &ref = str;
 
 	std::cout << "String:    " << str << std::endl;
 	std::cout << "Pointer:   " << *ptr << std::endl;

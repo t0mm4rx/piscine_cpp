@@ -1,14 +1,11 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie()
+Zombie::Zombie(std::string name, std::string type) : type(type), name(name)
 {
-	return ;
 }
 
-Zombie::Zombie(std::string name, std::string type)
+Zombie::Zombie() : type("NoType"), name("NoName")
 {
-    this->type = type;
-    this->name = name;
 }
 
 void Zombie::announce(void)
@@ -17,7 +14,8 @@ void Zombie::announce(void)
 
 	nb_a = rand() % 20 + 2;
 	std::cout << "<" << this->name << " (" << this->type << ")> ";
-	for (int i = 0; i < nb_a; i++)
+	std::cout << "A";
+	for (int i = 0; i < 2 + rand() % 20; i++)
 		std::cout << "a";
 	std::cout << "h" << std::endl;
 }

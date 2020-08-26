@@ -6,10 +6,10 @@
 
 class Brain {
 	public:
-		Brain(void);
-	    std::string identify();
+					Brain(void);
+	    std::string	identify();
 	private:
-		std::string address;
+		std::string	address;
 };
 
 

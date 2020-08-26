@@ -8,12 +8,11 @@
 class Zombie
 {
 	public:
-		Zombie(std::string name, std::string type);
-		void announce(void);
-
+					Zombie(std::string name, std::string type);
+		void		announce(void);
 	private:
-		std::string type;
-		std::string name;
+		std::string	type;
+		std::string	name;
 };
 
 #endif
