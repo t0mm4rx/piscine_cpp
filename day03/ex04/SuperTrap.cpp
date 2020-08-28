@@ -10,5 +10,31 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name), NinjaTrap(name), FragTr
 	this->meleeAttackDamage = 60;
 	this->rangedAttackDamage = 20;
 	this->armorDamageReduction = 5;
-	return ;
+	std::cout << this->name << ": I'm a SuperTrap!" << std::endl;
+}
+
+SuperTrap::SuperTrap(SuperTrap const &other) : ClapTrap(name), NinjaTrap(name), FragTrap(name)
+{
+	std::cout << this->name << ": I'm a SuperTrap!" << std::endl;
+}
+
+SuperTrap	&SuperTrap::operator=(SuperTrap const &other)
+{
+	std::cout << this->name << ": I'm a SuperTrap!" << std::endl;
+	return (*this);
+}
+
+SuperTrap::~SuperTrap()
+{
+	std::cout << this->name <<  ": I'm not that super..." << std::endl;
+}
+
+void	SuperTrap::rangedAttack(std::string const &target)
+{
+	FragTrap::rangedAttack(target);
+}
+
+void	SuperTrap::meleeAttack(std::string const &target)
+{
+	NinjaTrap::meleeAttack(target);
 }

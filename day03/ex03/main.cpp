@@ -7,13 +7,19 @@ int main(void)
 	srand(time(0));
 	ScavTrap rose("Rose");
 	FragTrap john("John");
-	NinjaTrap ninja("Ninja");
+	FragTrap john2 = john;
+	ScavTrap rose2(rose);
+	NinjaTrap jordan("Jordan");
 
 	rose.challengeNewcomer();
+	rose2.meleeAttack("Micheal");
 	rose.rangedAttack("John");
-	ninja.ninjaShoebox(rose);
 	john.meleeAttack("Rose");
+	john2.rangedAttack("Micheal");
 	john.vaulthunter_dot_exe("Rose");
+	jordan.meleeAttack("Rose");
+	jordan.rangedAttack("Micheal");
+	jordan.ninjaShoebox(john);
 
 	return (0);
 }

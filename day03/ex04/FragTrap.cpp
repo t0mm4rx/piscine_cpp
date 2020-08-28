@@ -2,8 +2,6 @@
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	this->hitPoints = 100;
-	this->maxHit = 100;
 	this->energyPoints = 100;
 	this->maxEnergyPoints = 100;
 	this->meleeAttackDamage = 30;
@@ -13,10 +11,22 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	std::cout << this->name << ": Hi ! I'm ready !" << std::endl;
 }
 
+FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other)
+{
+	std::cout << this->name << ": Hi ! I'm ready !" << std::endl;
+}
+
+FragTrap	&FragTrap::operator=(FragTrap const &other)
+{
+	std::cout << this->name << ": Hi ! I'm ready !" << std::endl;
+	return (*this);
+}
+
 FragTrap::~FragTrap(void)
 {
 	std::cout << this->name << ": Oh no, I died :(" << std::endl;
 }
+
 void		FragTrap::vaulthunter_dot_exe(std::string const &target)
 {
 	int			choice;
@@ -47,4 +57,14 @@ void		FragTrap::vaulthunter_dot_exe(std::string const &target)
 			break;
 	}
 	std::cout << this->name << " attacked " << target << " with " << tool << std::endl;
+}
+
+void		FragTrap::rangedAttack(std::string const &target)
+{
+	std::cout << this->name << " attacked " << target << " with a bow, causing " << this->rangedAttackDamage << " damages." << std::endl;
+}
+
+void		FragTrap::meleeAttack(std::string const &target)
+{
+	std::cout << this->name << " attacked " << target << " with an axe, causing " << this->meleeAttackDamage << " damages." << std::endl;
 }

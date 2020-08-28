@@ -3,12 +3,16 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
-				FragTrap(std::string name);
-				~FragTrap(void);
-		void	vaulthunter_dot_exe(std::string const &target);
+					FragTrap(std::string name);
+					~FragTrap(void);
+					FragTrap(FragTrap const &other);
+		FragTrap	&operator=(FragTrap const &other);
+		void		vaulthunter_dot_exe(std::string const &target);
+		void		meleeAttack(std::string const &arget);
+		void		rangedAttack(std::string const &target);
 };
 
 #endif

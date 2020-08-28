@@ -14,6 +14,26 @@ FragTrap::FragTrap(std::string name)
 	std::cout << this->name << ": Hi ! I'm ready !" << std::endl;
 }
 
+FragTrap::FragTrap(FragTrap const &other)
+{
+	*this = other;
+	std::cout << this->name << ": Hi ! I'm ready !" << std::endl;
+}
+
+FragTrap	&FragTrap::operator=(FragTrap const &other)
+{
+	this->hitPoints = other.hitPoints;
+	this->maxHit = other.maxHit;
+	this->energyPoints = other.energyPoints;
+	this->maxEnergyPoints = other.maxEnergyPoints;
+	this->name = other.name;
+	this->meleeAttackDamage = other.meleeAttackDamage;
+	this->rangedAttackDamage = other.rangedAttackDamage;
+	this->armorDamageReduction = other.armorDamageReduction;
+	this->level = other.level;
+	return (*this);
+}
+
 FragTrap::~FragTrap(void)
 {
 	std::cout << this->name << ": Oh no, I died :(" << std::endl;
@@ -31,9 +51,12 @@ void		FragTrap::meleeAttack(std::string const &target)
 
 void		FragTrap::takeDamage(unsigned int damage)
 {
-	std::cout << this->name << " took " << damage - this->armorDamageReduction << " damages." << std::endl;
-	this->hitPoints -= damage + this->armorDamageReduction;
+	damage -= this->armorDamageReduction;
+	damage = (damage < 0 ? 0 : damage);
+	this->hitPoints -= damage;
 	this->hitPoints = (this->hitPoints < 0 ? 0 : this->hitPoints);
+	std::cout << this->name << " took " << damage << " damages.";
+	std::cout << " He has now " << this->hitPoints << " hit points." << std::endl;
 }
 
 void		FragTrap::beRepaired(unsigned int amount)
@@ -54,6 +77,7 @@ void		FragTrap::vaulthunter_dot_exe(std::string const &target)
 		return ;
 	}
 	this->energyPoints -= 25;
+	this->energyPoints = (this->energyPoints < 0 ? 0 : this->energyPoints);
 	choice = rand() % 5;
 	switch (choice) {
 		case 0:

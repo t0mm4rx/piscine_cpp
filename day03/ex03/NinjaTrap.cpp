@@ -13,12 +13,33 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 	std::cout << this->name << ": IIAAAA ! I'm a ninja !" << std::endl;
 }
 
+NinjaTrap::NinjaTrap(NinjaTrap const &other) : ClapTrap(other)
+{
+	std::cout << this->name << ": IIAAAA ! I'm a ninja !" << std::endl;
+}
+
+NinjaTrap	&NinjaTrap::operator=(NinjaTrap const &other)
+{
+	std::cout << this->name << ": IIAAAA ! I'm a ninja !" << std::endl;
+	return (*this);
+}
+
 NinjaTrap::~NinjaTrap()
 {
 	std::cout << this->name << ": I thought ninja were invicible..." << std::endl;
 }
 
-void NinjaTrap::ninjaShoebox(ClapTrap &target)
+void		NinjaTrap::ninjaShoebox(ClapTrap &target)
 {
 	std::cout << this->name << " used a secret and special ninja attack on " << target.getName() << " !" <<std::endl;
+}
+
+void		NinjaTrap::rangedAttack(std::string const &target)
+{
+	std::cout << this->name << " attacked " << target << " with a shuriken, causing " << this->rangedAttackDamage << " damages." << std::endl;
+}
+
+void		NinjaTrap::meleeAttack(std::string const &target)
+{
+	std::cout << this->name << " attacked " << target << " with an katana, causing " << this->meleeAttackDamage << " damages." << std::endl;
 }
