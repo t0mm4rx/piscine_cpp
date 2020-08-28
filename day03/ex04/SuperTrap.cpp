@@ -20,6 +20,7 @@ SuperTrap::SuperTrap(SuperTrap const &other) : ClapTrap(name), NinjaTrap(name), 
 
 SuperTrap	&SuperTrap::operator=(SuperTrap const &other)
 {
+	(void)other;
 	std::cout << this->name << ": I'm a SuperTrap!" << std::endl;
 	return (*this);
 }

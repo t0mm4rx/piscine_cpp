@@ -20,6 +20,7 @@ NinjaTrap::NinjaTrap(NinjaTrap const &other) : ClapTrap(other)
 
 NinjaTrap	&NinjaTrap::operator=(NinjaTrap const &other)
 {
+	(void)other;
 	std::cout << this->name << ": IIAAAA ! I'm a ninja !" << std::endl;
 	return (*this);
 }

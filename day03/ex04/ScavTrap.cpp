@@ -13,11 +13,13 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
 {
+	(void)other;
 	std::cout << this->name << ": Hey ! At your service." << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(ScavTrap const &other)
 {
+	(void)other;
 	std::cout << this->name << ": Hey ! At your service." << std::endl;
 	return (*this);
 }
