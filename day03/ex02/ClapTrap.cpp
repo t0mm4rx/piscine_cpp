@@ -58,10 +58,10 @@ void		ClapTrap::beRepaired(unsigned int amount)
 
 void		ClapTrap::rangedAttack(std::string const &target)
 {
-	std::cout << this->name << " uses a ranged attack." << std::endl;
+	std::cout << this->name << " uses a ranged attack against" << target << "." << std::endl;
 }
 
 void		ClapTrap::meleeAttack(std::string const &target)
 {
-	std::cout << this->name << " uses a melee attack." << std::endl;
+	std::cout << this->name << " uses a melee attack against" << target << "." << std::endl;
 }

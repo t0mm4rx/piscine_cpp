@@ -18,6 +18,7 @@ FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other)
 
 FragTrap	&FragTrap::operator=(FragTrap const &other)
 {
+	(void)other;
 	std::cout << this->name << ": Hi ! I'm ready !" << std::endl;
 	return (*this);
 }
