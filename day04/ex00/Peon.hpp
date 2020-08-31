@@ -8,8 +8,10 @@
 class Peon : public Victim
 {
 	public:
-		Peon(std::string name);
-		virtual ~Peon(void);
+				Peon(std::string name);
+				Peon(const Peon &other);
+		Peon	&operator=(const Peon &other);
+		virtual	~Peon(void);
 		void	getPolymorphed(void) const;
 };
 

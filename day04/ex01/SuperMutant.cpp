@@ -15,4 +15,5 @@ void	SuperMutant::takeDamage(int damage)
 	(void)damage;
 	this->hp -= 3;
 	this->hp = (this->hp < 0 ? 0 : this->hp);
+	std::cout << this->hp << " HP remaining for " << this->type << std::endl;
 }

@@ -5,6 +5,19 @@ Victim::Victim(std::string name) : name(name)
 	std::cout << "A random victim called " << this->name << " just appeared!" << std::endl;
 }
 
+Victim::Victim(const Victim &other)
+{
+	*this = other;
+	std::cout << "A random victim called " << this->name << " just appeared!" << std::endl;
+}
+
+Victim	&Victim::operator=(const Victim &other)
+{
+	this->name = other.name;
+	std::cout << "A random victim called " << this->name << " just appeared!" << std::endl;
+	return (*this);
+}
+
 Victim::~Victim(void)
 {
 	std::cout << "The victim " << this->name << " died for no apparent reasons!" << std::endl;

@@ -6,8 +6,8 @@
 class PowerFist : public AWeapon
 {
 	public:
-		PowerFist(void);
-		void	attack(void);
+				PowerFist(void);
+		void	attack(void) const;
 };
 
 #endif

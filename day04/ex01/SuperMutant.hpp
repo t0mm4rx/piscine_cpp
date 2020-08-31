@@ -7,8 +7,8 @@
 class SuperMutant : public Enemy
 {
 	public:
-		SuperMutant(void);
-		~SuperMutant(void);
+				SuperMutant(void);
+				~SuperMutant(void);
 		void	takeDamage(int damage);
 };
 

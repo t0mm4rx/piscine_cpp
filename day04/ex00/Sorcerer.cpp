@@ -7,19 +7,21 @@ Sorcerer::Sorcerer(std::string name, std::string title) : name(name), title(titl
 
 Sorcerer::Sorcerer(const Sorcerer &target)
 {
-	(void)target;
+	std::cout << name << ", " << title << ", is born!" << std::endl;
+	*this = target;
 }
 
 Sorcerer &Sorcerer::operator=(const Sorcerer &target)
 {
 	this->name = target.name;
 	this->title = target.title;
+	std::cout << name << ", " << title << ", is born!" << std::endl;
 	return (*this);
 }
 
 Sorcerer::~Sorcerer(void)
 {
-	std::cout << this->name << ", " << this->title << ", is dead. Consequences will never be the same" << std::endl;
+	std::cout << this->name << ", " << this->title << ", is dead. Consequences will never be the same!" << std::endl;
 }
 
 std::string Sorcerer::getName(void) const
@@ -39,7 +41,6 @@ void	Sorcerer::polymorph(Victim const &victim) const
 
 std::ostream	&operator << (std::ostream &stream, Sorcerer const &target)
 {
-	stream << "I am " << target.getName() << ", " << target.getTitle()
-		<< ", and I like ponies !\n";
+	stream << "I am " << target.getName() << ", " << target.getTitle() << ", and I like ponies !\n";
 	return (stream);
 }

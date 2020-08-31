@@ -6,8 +6,8 @@
 class PlasmaRifle : public AWeapon
 {
 	public:
-		PlasmaRifle(void);
-		void	attack(void);
+				PlasmaRifle(void);
+		void	attack(void) const;
 };
 
 #endif

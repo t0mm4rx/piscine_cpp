@@ -32,7 +32,22 @@ NinjaTrap::~NinjaTrap()
 
 void		NinjaTrap::ninjaShoebox(ClapTrap &target)
 {
-	std::cout << this->name << " used a secret and special ninja attack on " << target.getName() << " !" <<std::endl;
+	std::cout << this->name << " used a secret and special ninja attack on the claptrap " << target.getName() << " !" <<std::endl;
+}
+
+void		NinjaTrap::ninjaShoebox(ScavTrap &target)
+{
+	std::cout << this->name << " used a secret and special ninja attack on the scavtrap " << target.getName() << " !" <<std::endl;
+}
+
+void		NinjaTrap::ninjaShoebox(FragTrap &target)
+{
+	std::cout << this->name << " used a secret and special ninja attack on the fragtrap " << target.getName() << " !" <<std::endl;
+}
+
+void		NinjaTrap::ninjaShoebox(NinjaTrap &target)
+{
+	std::cout << this->name << " used a secret and special ninja attack on the ninjatrap" << target.getName() << " !" <<std::endl;
 }
 
 void		NinjaTrap::rangedAttack(std::string const &target)
