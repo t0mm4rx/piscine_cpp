@@ -57,7 +57,7 @@ int				Squad::push(ISpaceMarine *unit)
 	for (int i = 0; i < this->current; i++)
 		tmp[i] = this->units[i];
 	tmp[this->current++] = unit;
-	if (this->units == 0)
+	if (this->units != 0)
 		delete []this->units;
 	this->units = tmp;
 	return (1);
