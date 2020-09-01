@@ -9,7 +9,7 @@
 class Character
 {
 	public:
-					Character(const std::string &name);
+					Character(const std::string &name = "Unnamed");
 					Character(const Character &other);
 					~Character(void);
 		Character	&operator=(const Character &other);

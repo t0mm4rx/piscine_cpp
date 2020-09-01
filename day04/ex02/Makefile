@@ -1,5 +1,5 @@
 NAME=bin
-FLAGS=-Werror -Wall -Wextra
+FLAGS=-Werror -Wall -Wextra -fsanitize=address -g3
 
 SRC = ${wildcard *.cpp}
 OBJ = $(SRC:.cpp=.o)

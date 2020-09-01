@@ -12,8 +12,7 @@ Peon::Peon(const Peon &other) : Victim(other)
 
 Peon &Peon::operator=(const Peon &other)
 {
-	*this = other;
-	std::cout << "A random victim called " << this->name << " just appeared!" << std::endl;
+	this->name = other.name;
 	return (*this);
 }
 

@@ -14,7 +14,6 @@ Victim::Victim(const Victim &other)
 Victim	&Victim::operator=(const Victim &other)
 {
 	this->name = other.name;
-	std::cout << "A random victim called " << this->name << " just appeared!" << std::endl;
 	return (*this);
 }
 
@@ -33,8 +32,8 @@ std::string Victim::getName(void) const
 	return (this->name);
 }
 
-std::ostream &operator << (std::ostream &stream, Victim const &target)
+std::ostream &operator<<(std::ostream &stream, Victim const &target)
 {
-	stream << "I'm " << target.getName() << " and I like otters !\n";
+	stream << "I'm " << target.getName() << " and I like otters !";
 	return (stream);
 }
