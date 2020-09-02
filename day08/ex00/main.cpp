@@ -1,36 +1,54 @@
 #include <iostream>
 #include <vector>
+#include <list>
 #include "easyfind.hpp"
-#define PRINT(X) std::cout << X << std::endl
 
 int main()
 {
 	std::vector<int> list;
-
 	for (int i = 0; i < 20; i++)
 		list.push_back(i * 2);
 	try
 	{
-		PRINT(easyfind(list, 4));
+		std::cout << easyfind(list, 4) << std::endl;
 	}
-	catch (std::exception err)
+	catch (std::exception &e)
 	{
-		PRINT("Cannot find 4");
-	}
-	try
-	{
-		PRINT(easyfind(list, 1));
-	}
-	catch (std::exception err)
-	{
-		PRINT("Cannot find 1");
+		std::cout << "Cannot find 4" << std::endl;
 	}
 	try
 	{
-		PRINT(easyfind(list, 38));
+		std::cout << easyfind(list, 1) << std::endl;
 	}
-	catch (std::exception err)
+	catch (std::exception &e)
 	{
-		PRINT("Cannot find 38");
+		std::cout << "Cannot find 1" << std::endl;
+	}
+	try
+	{
+		std::cout << easyfind(list, 38) << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Cannot find 38" << std::endl;
+	}
+	std::list<int> list2;
+	for (int i = -5; i <= 5; i++)
+		list2.push_back(i);
+	try
+	{
+		std::cout << easyfind(list2, 0) << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Cannot find 0" << std::endl;
+	}
+	try
+	{
+		std::cout << easyfind(list2, -7) << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Cannot find -7" << std::endl;
 	}
 }

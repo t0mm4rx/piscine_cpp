@@ -1,12 +1,14 @@
 #include "span.hpp"
 
-		Span::Span(void) : maxItems(INT_MAX)
+Span::Span(void) : maxItems(INT_MAX)
 {}
 
-		Span::Span(unsigned int n) : maxItems(n)
-{}
+Span::Span(unsigned int n) : maxItems(n)
+{
+	this->list.reserve(n);
+}
 
-void	Span::addNumber(int n)
+void Span::addNumber(int n)
 {
 	if (this->isInList(n))
 		throw std::exception();
@@ -15,12 +17,12 @@ void	Span::addNumber(int n)
 	this->list.push_back(n);
 }
 
-bool	Span::isInList(int n)
+bool Span::isInList(int n)
 {
 	return (std::find(this->list.begin(), this->list.end(), n) != this->list.end());
 }
 
-int		Span::shortestSpan(void)
+int Span::shortestSpan(void)
 {
 	int							min;
 	int							tmp;
@@ -49,7 +51,7 @@ int		Span::shortestSpan(void)
 	return (min);
 }
 
-int		Span::longestSpan(void)
+int Span::longestSpan(void)
 {
 	int							max;
 	int							tmp;
