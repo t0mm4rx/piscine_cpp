@@ -17,7 +17,7 @@ void	identify_from_pointer(Base *p)
 
 void identify_from_reference(Base &p)
 {
-	Base a;
+	Base	a;
 	try
 	{
 		a = dynamic_cast<A&>(p);
@@ -40,9 +40,9 @@ void identify_from_reference(Base &p)
 
 int		main(void)
 {
-	Base *a = new A();
-	Base *b = new B();
-	Base *c = new C();
+	Base	*a = new A();
+	Base	*b = new B();
+	Base	*c = new C();
 
 	identify_from_pointer(a);
 	identify_from_pointer(b);
