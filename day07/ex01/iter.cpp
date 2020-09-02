@@ -3,7 +3,7 @@
 
 template <typename T> void iter(T *array, unsigned int length, void (*f)(T &elem))
 {
-  for (int i = 0; i < length; i++) {
+  for (unsigned int i = 0; i < length; i++) {
     f(array[i]);
   }
 }
@@ -20,7 +20,7 @@ void fn2(std::string &s)
 
 void printList(int *list, unsigned int length)
 {
-  for (int i = 0; i < length; i++)
+  for (unsigned int i = 0; i < length; i++)
     std::cout << list[i] << " ";
   std::cout << std::endl;
 }

@@ -5,7 +5,7 @@
 
 template <typename T> class Array {
 	public:
-		Array(void) : array(NULL), n(0)
+		Array(void) : array(nullptr), n(0)
 		{}
 
 		Array(unsigned int n) : array(new T[n]()), n(n)
@@ -13,39 +13,30 @@ template <typename T> class Array {
 
 		~Array(void)
 		{
-			if (this->array != NULL)
+			if (this->array != nullptr)
 				delete [] this->array;
 		}
 
-		Array(Array const &obj) : array(NULL), n(0)
+		Array(const Array &obj) : array(nullptr), n(0)
 		{
 			*this = obj;
 		}
 
-		Array const &operator=(Array const &target)
+		const Array &operator=(const Array &target)
 		{
-			if (&target == this)
-				return *this;
-
-			if (this->size() != target.size())
-			{
-				if (this->array != NULL)
-					delete [] this->array;
-				this->array = new T[target.size()];
-			}
-
+			if (this->array != nullptr)
+				delete [] this->array;
+			this->array = new T[target.size()];
 			this->n = target.size();
-			for (int i = 0; i < target.size(); i++)
+			for (unsigned int i = 0; i < target.size(); i++)
 				this->array[i] = target.array[i];
-
-			return *this;
+			return (*this);
 		}
 
 		T &operator[](int i) const
 		{
-			if (!this->array || i < 0 || i >= this->n)
+			if (!this->array || i < 0 || (unsigned int)i >= this->n)
 				throw std::exception();
-
 			return this->array[i];
 		}
 
@@ -55,8 +46,8 @@ template <typename T> class Array {
 		}
 
 	private:
-		T *array;
-		unsigned int n;
+		T				*array;
+		unsigned int	n;
 };
 
 #endif
