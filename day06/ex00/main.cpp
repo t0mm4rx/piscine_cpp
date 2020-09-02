@@ -15,7 +15,6 @@
 #include <sstream>
 #include <cctype>
 #include <math.h>
-#define PRINT(X) std::cout << X << std::endl
 
 void	go(char* src)
 {
@@ -49,22 +48,18 @@ void	go(char* src)
 			return ;
 		}
 	}
-
-	// Char
 	std::cout << "char:   ";
 	if (k < CHAR_MIN || k > CHAR_MAX)
-		PRINT("impossible");
+		std::cout << "impossible" << std::endl;
 	else if (std::isprint(k))
-		PRINT(static_cast<unsigned char>(k));
+		std::cout << static_cast<unsigned char>(k) << std::endl;
 	else
-		PRINT("non displayable");
-	// Int
+		std::cout << "non displayable" << std::endl;
 	std::cout << "int:    ";
 	if (k >= INT_MIN && k <= INT_MAX && !isnan(k) && !isinf(k))
-		PRINT(static_cast<int>(k));
+		std::cout << static_cast<int>(k) << std::endl;
 	else
-		PRINT("impossible ");
-	// Float
+		std::cout << "impossible " << std::endl;
 	std::cout << "float:  ";
 	if (isnan(k))
 		std::cout << "nan";
@@ -72,15 +67,14 @@ void	go(char* src)
 		std::cout << "inf";
 	else
 		std::cout << static_cast<float>(k);
-	PRINT("f");
-	// Double
+	std::cout << "f" << std::endl;
 	std::cout << "double: ";
 	if (isnan(k))
-		PRINT("nan");
+		std::cout << "nan" << std::endl;
 	else if (isinf(k))
-		PRINT("inf");
+		std::cout << "inf" << std::endl;
 	else
-		PRINT(k);
+		std::cout << k << std::endl;
 }
 
 int		main(int argc, char **argv)

@@ -1,6 +1,5 @@
 #include <iostream>
 #include "main.hpp"
-#define PRINT(X) std::cout << X << std::endl
 
 void	*serialize(void)
 {
@@ -10,7 +9,7 @@ void	*serialize(void)
 	for (int i = 0; i < 8; i++)
 		res[i] = alph[std::rand() % 62];
 	*reinterpret_cast<int*>(res + 8) = std::rand();
-	for (int i = 8 + sizeof(int); i < 16 + sizeof(int); i++)
+	for (int i = 8 + sizeof(int); (unsigned int)i < 16 + sizeof(int); i++)
 		res[i] = alph[std::rand() % 62];
 	return ((void*)res);
 }
@@ -32,9 +31,9 @@ int		main(void)
 	Data	*data = deserialize(addr);
 
 	std::srand(time(0));
-	PRINT("s1: " << data->s1);
-	PRINT("s2: " << data->s2);
-	PRINT("n : " << data->n);
+	std::cout << "s1: " << data->s1 << std::endl;
+	std::cout << "s2: " << data->s2 << std::endl;
+	std::cout << "n : " << data->n << std::endl;
 
 	delete reinterpret_cast<char*>(addr);
 	delete data;

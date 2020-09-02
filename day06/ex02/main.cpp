@@ -1,18 +1,17 @@
 #include "Base.hpp"
 #include "Classes.hpp"
 #include <iostream>
-#define PRINT(X) std::cout << X << std::endl
 
 Base::~Base(void) {}
 
 void	identify_from_pointer(Base *p)
 {
 	if (dynamic_cast<A *>(p))
-		PRINT("A");
+		std::cout << "A" << std::endl;
 	if (dynamic_cast<B *>(p))
-		PRINT("B");
+		std::cout << "B" << std::endl;
 	if (dynamic_cast<C *>(p))
-		PRINT("C");
+		std::cout << "C" << std::endl;
 }
 
 void identify_from_reference(Base &p)
@@ -21,19 +20,19 @@ void identify_from_reference(Base &p)
 	try
 	{
 		a = dynamic_cast<A&>(p);
-		PRINT("A");
+		std::cout << "A" << std::endl;
 	}
 	catch (std::bad_cast err) {}
 	try
 	{
 		a = dynamic_cast<B&>(p);
-		PRINT("B");
+		std::cout << "B" << std::endl;
 	}
 	catch (std::bad_cast err) {}
 	try
 	{
 		a = dynamic_cast<C&>(p);
-		PRINT("C");
+		std::cout << "C" << std::endl;
 	}
 	catch (std::bad_cast err) {}
 }
@@ -47,7 +46,7 @@ int		main(void)
 	identify_from_pointer(a);
 	identify_from_pointer(b);
 	identify_from_pointer(c);
-	PRINT("");
+	std::cout << std::endl;
 	identify_from_reference(*a);
 	identify_from_reference(*b);
 	identify_from_reference(*c);
