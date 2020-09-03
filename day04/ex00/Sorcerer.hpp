@@ -9,7 +9,7 @@
 class Sorcerer
 {
 	public:
-					Sorcerer(std::string name="Unnamed", std::string title="Untitled");
+					Sorcerer(std::string, std::string title);
 					Sorcerer(const Sorcerer &target);
 		Sorcerer	&operator=(const Sorcerer &target);
 					~Sorcerer(void);
@@ -19,6 +19,7 @@ class Sorcerer
 	private:
 		std::string	name;
 		std::string	title;
+					Sorcerer(void);
 };
 
 std::ostream& operator << (std::ostream &stream, Sorcerer const &target);

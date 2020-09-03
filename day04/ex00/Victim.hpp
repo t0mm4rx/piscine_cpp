@@ -8,7 +8,7 @@
 class Victim
 {
 	public:
-						Victim(std::string name="Unnamed");
+						Victim(std::string name);
 						Victim(const Victim &other);
 						~Victim(void);
 		Victim			&operator=(const Victim &other);
@@ -16,6 +16,7 @@ class Victim
 		std::string		getName(void) const;
 	protected:
 		std::string		name;
+						Victim(void);
 };
 
 std::ostream& operator<<(std::ostream &out, Victim const &target);

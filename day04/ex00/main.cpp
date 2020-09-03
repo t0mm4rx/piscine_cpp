@@ -6,11 +6,9 @@ int main(void)
 {
 	Sorcerer john("John", "Master");
 	Victim micheal("Micheal");
-	Victim tmp;
-	tmp = micheal;
+	Victim tmp = micheal;
 	Peon rose("Rose");
-	Peon roseCopy;
-	roseCopy = rose;
+	Peon roseCopy = rose;
 	Victim michealCopy(micheal);
 	john.polymorph(micheal);
 	john.polymorph(rose);

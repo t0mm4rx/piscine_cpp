@@ -12,14 +12,18 @@ class Form
 		{
 			public:
 				GradeTooHighException(void);
+				const char *what() const throw();
 		};
 
 		class 		GradeTooLowException : public std::exception
 		{
 			public:
 				GradeTooLowException(void);
+				const char *what() const throw();
 		};
 					Form(std::string name, int requiredSignatureGrade, int requiredExecutionGrade);
+					Form(const Form &other);
+		Form		&operator=(const Form &other);
 		void		setSignatureGrade(int grade);
 		void		setExecutionGrade(int grade);
 		int			getSigningGrade(void) const;
@@ -33,6 +37,6 @@ class Form
 		int			requiredExecutionGrade;
 };
 
-std::ostream		&operator<< (std::ostream &out, const Form &target);
+std::ostream		&operator<<(std::ostream &out, const Form &target);
 
 #endif

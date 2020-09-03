@@ -15,7 +15,6 @@ Sorcerer &Sorcerer::operator=(const Sorcerer &target)
 {
 	this->name = target.name;
 	this->title = target.title;
-	std::cout << name << ", " << title << ", is born!" << std::endl;
 	return (*this);
 }
 
@@ -39,7 +38,7 @@ void	Sorcerer::polymorph(Victim const &victim) const
 	victim.getPolymorphed();
 }
 
-std::ostream	&operator << (std::ostream &stream, Sorcerer const &target)
+std::ostream	&operator<<(std::ostream &stream, Sorcerer const &target)
 {
 	stream << "I am " << target.getName() << ", " << target.getTitle() << ", and I like ponies !\n";
 	return (stream);

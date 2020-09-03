@@ -15,13 +15,13 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name), NinjaTrap(name), FragTr
 
 SuperTrap::SuperTrap(SuperTrap const &other) : ClapTrap(name), NinjaTrap(name), FragTrap(name)
 {
+	*this = other;
 	std::cout << this->name << ": I'm a SuperTrap!" << std::endl;
 }
 
 SuperTrap	&SuperTrap::operator=(SuperTrap const &other)
 {
 	(void)other;
-	std::cout << this->name << ": I'm a SuperTrap!" << std::endl;
 	return (*this);
 }
 
