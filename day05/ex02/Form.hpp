@@ -36,6 +36,7 @@ class Form
 		bool		hasBeenSigned;
 		int			requiredSignatureGrade;
 		int			requiredExecutionGrade;
+					Form(void);
 };
 
 std::ostream		&operator<< (std::ostream &out, const Form &target);

@@ -1,7 +1,6 @@
 #ifndef Squad_hpp
 # define Squad_hpp
 
-# define MAX_UNITS 100
 # include <iostream>
 # include "ISquad.hpp"
 # include "ISpaceMarine.hpp"
