@@ -12,11 +12,12 @@ class Enemy
 		Enemy				&operator=(const Enemy &other);
 		virtual				~Enemy(void);
 		std::string			getType(void) const;
-		int					getHP() const;
+		int					getHP(void) const;
 		virtual void		takeDamage(int damage);
 	protected:
 		int					hp;
 		std::string			type;
+	private:
 							Enemy(void);
 };
 

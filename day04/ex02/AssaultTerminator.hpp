@@ -10,7 +10,7 @@ class AssaultTerminator : public ISpaceMarine
 								AssaultTerminator(void);
 								AssaultTerminator(const AssaultTerminator &other);
 								~AssaultTerminator(void);
-		AssaultTerminator		&operator= (const AssaultTerminator &other);
+		AssaultTerminator		&operator=(const AssaultTerminator &other);
 		virtual void			battleCry(void) const;
 		virtual void			meleeAttack(void) const;
 		virtual void			rangedAttack(void) const;

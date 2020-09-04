@@ -10,9 +10,9 @@ private:
 	int				current;
 	AMateria		*sources[4];
 public:
-					MateriaSource();
+					MateriaSource(void);
 					MateriaSource(const MateriaSource &other);
-	virtual			~MateriaSource();
+	virtual			~MateriaSource(void);
 	MateriaSource	&operator=(const MateriaSource &other);
 	void			learnMateria(AMateria *m);
 	AMateria		*createMateria(const std::string &type);

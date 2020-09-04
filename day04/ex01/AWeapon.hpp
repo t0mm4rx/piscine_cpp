@@ -15,10 +15,11 @@ class AWeapon
 		int				getAPCost(void) const;
 		int				getDamage(void) const;
 		virtual void	attack(void) const = 0;
-	private:
+	protected:
 		std::string		name;
 		int				apCost;
 		int				damage;
+	private:
 						AWeapon(void);
 
 };

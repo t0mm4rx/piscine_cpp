@@ -6,9 +6,9 @@
 class Ice: public AMateria
 {
 public:
-				Ice();
+				Ice(void);
 				Ice(const Ice &other);
-	virtual		~Ice();
+	virtual		~Ice(void);
 	Ice			&operator=(const Ice &other);
 	AMateria	*clone(void) const;
 	void		use(ICharacter &target);
