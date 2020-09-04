@@ -5,6 +5,18 @@ AMateria::AMateria(const std::string &type):
 {
 }
 
+AMateria::AMateria(const AMateria &other)
+{
+	*this = other;
+}
+
+AMateria &AMateria::operator=(const AMateria &other)
+{
+	this->xp = other.getXP();
+	this->type = other.getType();
+	return (*this);
+}
+
 AMateria::~AMateria()
 {
 }

@@ -8,7 +8,7 @@ class SuperMutant : public Enemy
 {
 	public:
 				SuperMutant(void);
-				~SuperMutant(void);
+		virtual	~SuperMutant(void);
 		void	takeDamage(int damage);
 };
 

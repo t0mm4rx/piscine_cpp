@@ -11,7 +11,7 @@ Victim::Victim(const Victim &other)
 	std::cout << "A random victim called " << this->name << " just appeared!" << std::endl;
 }
 
-Victim	&Victim::operator=(const Victim &other)
+Victim &Victim::operator=(const Victim &other)
 {
 	this->name = other.name;
 	return (*this);

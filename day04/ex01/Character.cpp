@@ -10,33 +10,33 @@ Character::~Character(void)
 {
 }
 
-void		Character::equip(AWeapon *weapon)
+void Character::equip(AWeapon *weapon)
 {
 	this->weapon = weapon;
 }
 
-void		Character::recoverAP(void)
+void Character::recoverAP(void)
 {
 	this->ap += 10;
 	this->ap = (this->ap > 40 ? 40 : this->ap);
 	std::cout << this->name << " has rested, he has now " << this->ap << " AP" << std::endl;
 }
 
-std::string	Character::getName(void) const
+std::string Character::getName(void) const
 {
 	return (this->name);
 }
 
-void		Character::attack(Enemy *enemy)
+void Character::attack(Enemy *enemy)
 {
-	if (this->ap == 0)
-	{
-		std::cout << "No AP, cannot attack" << std::endl;
-		return ;
-	}
 	if (this->weapon == NULL)
 	{
 		std::cout << "No weapon, cannot attack" << std::endl;
+		return ;
+	}
+	if (this->ap < this->weapon->getAPCost())
+	{
+		std::cout << "No AP, cannot attack" << std::endl;
 		return ;
 	}
 	std::cout << this->name << " attack " << enemy->getType() << " with a " << this->weapon->getName() << std::endl;
@@ -48,12 +48,12 @@ void		Character::attack(Enemy *enemy)
 		delete enemy;
 }
 
-int			Character::getAP(void) const
+int Character::getAP(void) const
 {
 	return (this->ap);
 }
 
-AWeapon		*Character::getWeapon(void) const
+AWeapon *Character::getWeapon(void) const
 {
 	return (this->weapon);
 }

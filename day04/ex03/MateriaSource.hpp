@@ -7,7 +7,7 @@
 class MateriaSource: public IMateriaSource
 {
 private:
-	int				amount;
+	int				current;
 	AMateria		*sources[4];
 public:
 					MateriaSource();

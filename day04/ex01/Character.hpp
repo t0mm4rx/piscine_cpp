@@ -9,7 +9,7 @@
 class Character
 {
 	public:
-					Character(const std::string &name = "Unnamed");
+					Character(const std::string &name);
 					Character(const Character &other);
 					~Character(void);
 		Character	&operator=(const Character &other);
@@ -23,6 +23,7 @@ class Character
 		std::string	name;
 		int			ap;
 		AWeapon		*weapon;
+					Character(void);
 };
 
 std::ostream& operator<<(std::ostream& os, const Character& dt);

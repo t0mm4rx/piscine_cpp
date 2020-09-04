@@ -1,16 +1,16 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource():
-	amount(0)
+	current(0)
 {
 	for (int i = 0; i < 4; i++)
 		this->sources[i] = 0;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other):
-	amount(0)
+	current(0)
 {
-	for (int i = 0; i < other.amount; i++)
+	for (int i = 0; i < other.current; i++)
 		this->learnMateria(other.sources[i]->clone());
 	for (int i = 0; i < 4; i++)
 		this->sources[i] = 0;
@@ -18,16 +18,16 @@ MateriaSource::MateriaSource(const MateriaSource &other):
 
 MateriaSource::~MateriaSource()
 {
-	for (int i = 0; i < this->amount; i++)
+	for (int i = 0; i < this->current; i++)
 		delete this->sources[i];
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 {
-	for (int i = 0; i < this->amount; i++)
+	for (int i = 0; i < this->current; i++)
 		delete this->sources[i];
-	this->amount = 0;
-	for (int i = 0; i < other.amount; i++)
+	this->current = 0;
+	for (int i = 0; i < other.current; i++)
 		this->learnMateria(other.sources[i]->clone());
 	for (int i = 0; i < 4; i++)
 		this->sources[i] = 0;
@@ -36,19 +36,19 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 
 void MateriaSource::learnMateria(AMateria *m)
 {
-	if (this->amount  == 4 || m == 0)
+	if (this->current  == 4 || m == 0)
 		return ;
-	for (int i = 0; i < this->amount; i++)
+	for (int i = 0; i < this->current; i++)
 	{
 		if (this->sources[i] == m)
 			return ;
 	}
-	this->sources[this->amount++] = m;
+	this->sources[this->current++] = m;
 }
 
 AMateria* MateriaSource::createMateria(const std::string &type)
 {
-	for (int i = 0; i < this->amount; i++)
+	for (int i = 0; i < this->current; i++)
 	{
 		if (this->sources[i]->getType() == type)
 			return (this->sources[i]->clone());

@@ -19,7 +19,7 @@ Squad::~Squad(void)
 	this->units = 0;
 }
 
-Squad			&Squad::operator=(Squad const &other)
+Squad &Squad::operator=(Squad const &other)
 {
 	std::cout << "Copy" << std::endl;
 	for (int i = 0; i < this->current; i++)
@@ -32,19 +32,19 @@ Squad			&Squad::operator=(Squad const &other)
 	return (*this);
 }
 
-int				Squad::getCount(void) const
+int Squad::getCount(void) const
 {
 	return (this->current);
 }
 
-ISpaceMarine	*Squad::getUnit(int n) const
+ISpaceMarine *Squad::getUnit(int n) const
 {
 	if (n < this->current)
 		return (this->units[n]);
 	return (0);
 }
 
-int				Squad::push(ISpaceMarine *unit)
+int Squad::push(ISpaceMarine *unit)
 {
 	if (unit == 0)
 		return (0);

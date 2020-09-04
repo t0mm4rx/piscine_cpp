@@ -7,7 +7,7 @@
 class Enemy
 {
 	public:
-							Enemy(int hp = 0, const std::string &type = "Untyped");
+							Enemy(int hp, const std::string &type);
 							Enemy(const Enemy &other);
 		Enemy				&operator=(const Enemy &other);
 		virtual				~Enemy(void);
@@ -17,6 +17,7 @@ class Enemy
 	protected:
 		int					hp;
 		std::string			type;
+							Enemy(void);
 };
 
 #endif

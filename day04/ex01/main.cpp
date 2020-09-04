@@ -37,7 +37,6 @@ int main(void)
 	player->attack(mutant);
 	player->attack(mutant);
 	player->attack(mutant);
-	player->attack(mutant);
 	std::cout << *player;
 	std::cout << "-- The player has no energy left, he escapes. --" << std::endl;
 

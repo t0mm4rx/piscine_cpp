@@ -23,8 +23,7 @@ Ice &Ice::operator=(const Ice &other)
 
 AMateria *Ice::clone(void) const
 {
-	Ice *cpy = new Ice(*this);
-	return (cpy);
+	return (new Ice(*this));
 }
 
 void Ice::use(ICharacter &target)

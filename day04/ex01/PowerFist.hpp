@@ -7,6 +7,7 @@ class PowerFist : public AWeapon
 {
 	public:
 				PowerFist(void);
+		virtual	~PowerFist(void);
 		void	attack(void) const;
 };
 

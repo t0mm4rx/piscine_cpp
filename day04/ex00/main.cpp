@@ -5,6 +5,7 @@
 int main(void)
 {
 	Sorcerer john("John", "Master");
+	std::cout << john << std::endl;
 	Victim micheal("Micheal");
 	Victim tmp = micheal;
 	Peon rose("Rose");

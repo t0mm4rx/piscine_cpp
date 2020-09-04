@@ -10,7 +10,7 @@ SuperMutant::~SuperMutant(void)
 	std::cout << "Aaargh ..." << std::endl;
 }
 
-void	SuperMutant::takeDamage(int damage)
+void SuperMutant::takeDamage(int damage)
 {
 	(void)damage;
 	this->hp -= 3;

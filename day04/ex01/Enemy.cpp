@@ -8,7 +8,7 @@ Enemy::Enemy(const Enemy &other)
 	*this = other;
 }
 
-Enemy		&Enemy::operator=(const Enemy &other)
+Enemy &Enemy::operator=(const Enemy &other)
 {
 	this->hp = other.hp;
 	this->type = other.type;
@@ -18,17 +18,17 @@ Enemy		&Enemy::operator=(const Enemy &other)
 Enemy::~Enemy(void)
 {}
 
-std::string	Enemy::getType(void) const
+std::string Enemy::getType(void) const
 {
 	return (this->type);
 }
 
-int			Enemy::getHP(void) const
+int Enemy::getHP(void) const
 {
 	return (this->hp);
 }
 
-void		Enemy::takeDamage(int damage)
+void Enemy::takeDamage(int damage)
 {
 	this->hp -= damage;
 	this->hp = (this->hp < 0 ? 0 : this->hp);
