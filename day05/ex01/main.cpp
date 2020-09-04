@@ -44,5 +44,6 @@ int main(void)
 	{
 		std::cout << john.getName() << " cant sign " << deal.getName() << " because its grade is too low." << std::endl;
 	}
+	john.signForm(deal);
 	return (0);
 }

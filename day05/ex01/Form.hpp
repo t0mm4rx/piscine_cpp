@@ -3,7 +3,6 @@
 
 # include <string>
 # include <iostream>
-# include "Bureaucrat.hpp"
 
 class Form
 {
@@ -14,7 +13,6 @@ class Form
 				GradeTooHighException(void);
 				const char *what() const throw();
 		};
-
 		class 		GradeTooLowException : public std::exception
 		{
 			public:
@@ -29,12 +27,13 @@ class Form
 		int			getSigningGrade(void) const;
 		int			getExecutionGrade(void) const;
 		std::string	getName(void) const;
-		void		beSigned(Bureaucrat & bureaucrat);
+		void		beSigned(Bureaucrat &bureaucrat);
 	private:
 		std::string	name;
 		bool		hasBeenSigned;
 		int			requiredSignatureGrade;
 		int			requiredExecutionGrade;
+					Form(void);
 };
 
 std::ostream		&operator<<(std::ostream &out, const Form &target);
