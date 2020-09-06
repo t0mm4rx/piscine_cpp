@@ -3,6 +3,8 @@
 
 # include <string>
 # include <iostream>
+class Form;
+# include "Bureaucrat.hpp"
 
 class Form
 {
@@ -21,6 +23,7 @@ class Form
 		};
 					Form(std::string name, int requiredSignatureGrade, int requiredExecutionGrade);
 					Form(const Form &other);
+		virtual		~Form(void);
 		Form		&operator=(const Form &other);
 		void		setSignatureGrade(int grade);
 		void		setExecutionGrade(int grade);

@@ -16,6 +16,20 @@ Form::Form(std::string name, int requiredSignatureGrade, int requiredExecutionGr
 	this->hasBeenSigned = false;
 }
 
+Form::Form(const Form &other)
+{
+	*this = other;
+}
+
+Form &Form::operator=(const Form &other)
+{
+	this->name = other.name;
+	this->hasBeenSigned = other.hasBeenSigned;
+	this->requiredSignatureGrade = other.requiredSignatureGrade;
+	this->requiredExecutionGrade = other.requiredExecutionGrade;
+	return (*this);
+}
+
 void			Form::setSignatureGrade(int grade)
 {
 	if (grade < 1)
@@ -34,9 +48,14 @@ void			Form::setExecutionGrade(int grade)
 	this->requiredExecutionGrade = grade;
 }
 
-std::ostream	&operator<< (std::ostream &out, const Form &target)
+void Form::setName(std::string name)
 {
-	out << target.getName() << " minimum signing grade: " << target.getSigningGrade() << ", minimum executing grade: " << target.getExecutionGrade() << std::endl;
+	this->name = name;
+}
+
+std::ostream	&operator<<(std::ostream &out, const Form &target)
+{
+	out << target.getName() << " minimum signing grade: " << target.getSigningGrade() << ", minimum executing grade: " << target.getExecutionGrade() << ".";
 	return (out);
 }
 
@@ -55,18 +74,36 @@ std::string		Form::getName(void) const
 	return (this->name);
 }
 
-void			Form::beSigned(const Bureaucrat & bureaucrat)
+void			Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getSigningGrade())
 		throw GradeTooLowException();
-	std::cout << bureaucrat.getName() << " signs " << this->getName() << std::endl;
+	std::cout << bureaucrat.getName() << " signs " << this->getName() << "." << std::endl;
 	this->hasBeenSigned = true;
 }
 
-void			Form::execute(const Bureaucrat & bureaucrat) const
+Form::~Form(void)
+{}
+
+const char* Form::GradeTooHighException::what() const throw()
 {
-	if (bureaucrat.getGrade() < this->getExecutionGrade())
-		throw GradeTooLowException();
+	return "grade too high";
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return "grade too low";
+}
+
+const char* Form::NotSignedException::what() const throw()
+{
+	return "the form isn't signed yet";
+}
+
+void Form::execute(const Bureaucrat &executor) const
+{
 	if (!this->hasBeenSigned)
 		throw NotSignedException();
+	if (executor.getGrade() > this->requiredExecutionGrade)
+		throw GradeTooLowException();
 }

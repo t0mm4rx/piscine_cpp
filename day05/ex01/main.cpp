@@ -7,7 +7,7 @@ int main(void)
 	Bureaucrat john("John", 3);
 	Form deal("Deal", 11, 1);
 
-	std::cout << john;
+	std::cout << john << std::endl;
 	try
 	{
 		john.setGrade(151);
@@ -16,7 +16,7 @@ int main(void)
 	{
 		std::cout << "Error when setting grade." << std::endl;
 	}
-	std::cout << john;
+	std::cout << john << std::endl;
 	try
 	{
 		john.setGrade(1);
@@ -25,7 +25,7 @@ int main(void)
 	{
 		std::cout << "Error when setting grade." << std::endl;
 	}
-	std::cout << john;
+	std::cout << john << std::endl;
 	try
 	{
 		john.incrementGrade();
@@ -35,7 +35,7 @@ int main(void)
 		std::cout << "Error when incrementing grade." << std::endl;
 	}
 	john.setGrade(10);
-	std::cout << deal;
+	std::cout << deal << std::endl;
 	try
 	{
 		deal.beSigned(john);

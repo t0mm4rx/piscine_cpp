@@ -10,6 +10,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other)
 	*this = other;
 }
 
+Bureaucrat::~Bureaucrat(void)
+{}
+
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	this->name = other.getName();
@@ -48,7 +51,7 @@ void Bureaucrat::decrementGrade(void)
 
 std::ostream&operator<<(std::ostream &out, const Bureaucrat &target)
 {
-    out << target.getName() << ", bureaucrat grade " << target.getGrade() << std::endl;
+    out << target.getName() << ", bureaucrat grade " << target.getGrade() << ".";
     return (out);
 }
 

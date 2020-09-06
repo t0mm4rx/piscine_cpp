@@ -6,6 +6,9 @@ Form::GradeTooLowException::GradeTooLowException(void)
 Form::GradeTooHighException::GradeTooHighException(void)
 {}
 
+Form::~Form(void)
+{}
+
 Form::Form(std::string name, int requiredSignatureGrade, int requiredExecutionGrade) : name(name)
 {
 	this->setExecutionGrade(requiredExecutionGrade);
@@ -47,7 +50,7 @@ void			Form::setExecutionGrade(int grade)
 
 std::ostream	&operator<<(std::ostream &out, const Form &target)
 {
-	out << target.getName() << " minimum signing grade: " << target.getSigningGrade() << ", minimum executing grade: " << target.getExecutionGrade() << std::endl;
+	out << target.getName() << " minimum signing grade: " << target.getSigningGrade() << ", minimum executing grade: " << target.getExecutionGrade() << ".";
 	return (out);
 }
 
@@ -70,7 +73,7 @@ void			Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getSigningGrade())
 		throw GradeTooLowException();
-	std::cout << bureaucrat.getName() << " signs " << this->getName() << std::endl;
+	std::cout << bureaucrat.getName() << " signs " << this->getName() << "." << std::endl;
 	this->hasBeenSigned = true;
 }
 

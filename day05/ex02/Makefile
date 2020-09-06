@@ -15,6 +15,7 @@ run: $(NAME)
 clean:
 	rm -f *.o
 	rm -rf *.dSYM
+	rm -rf *_shrubbery
 
 fclean: clean
 	rm -f $(NAME)

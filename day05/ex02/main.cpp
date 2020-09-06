@@ -1,58 +1,27 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 
 int main(void)
 {
-	Bureaucrat john("John", 3);
-	Form deal("Deal", 11, 1);
-	ShrubberyCreationForm contract("contract");
+	Bureaucrat				john("John", 4);
+	Bureaucrat				johnson("Johnson", 140);
+	ShrubberyCreationForm	form1("tree");
+	RobotomyRequestForm		form2("Micheal");
+	PresidentialPardonForm	form3("Johson");
 
-	std::cout << john;
-	try
-	{
-		john.setGrade(151);
-	}
-	catch(std::exception)
-	{
-		std::cout << "Error when setting grade." << std::endl;
-	}
-	std::cout << john;
-	try
-	{
-		john.setGrade(1);
-	}
-	catch(std::exception)
-	{
-		std::cout << "Error when setting grade." << std::endl;
-	}
-	std::cout << john;
-	try
-	{
-		john.incrementGrade();
-	}
-	catch(std::exception)
-	{
-		std::cout << "Error when incrementing grade." << std::endl;
-	}
-	john.setGrade(10);
-	std::cout << deal;
-	try
-	{
-		deal.beSigned(john);
-	}
-	catch(std::exception)
-	{
-		std::cout << john.getName() << " cant sign " << deal.getName() << " because its grade is too low." << std::endl;
-	}
-	try
-	{
-		contract.execute(john);
-	}
-	catch(std::exception)
-	{
-		std::cout << "Cannot sign contract because the document has not been signed." << std::endl;
-	}
+	johnson.signForm(form1);
+	johnson.executeForm(form1);
+	john.executeForm(form1);
+	john.executeForm(form2);
+	john.signForm(form2);
+	john.executeForm(form2);
+	johnson.signForm(form3);
+	john.executeForm(form3);
+	john.signForm(form3);
+	john.executeForm(form3);
 	return (0);
 }
