@@ -9,43 +9,24 @@ Form::GradeTooHighException::GradeTooHighException(void)
 Form::~Form(void)
 {}
 
-Form::Form(std::string name, int requiredSignatureGrade, int requiredExecutionGrade) : name(name)
+Form::Form(std::string name, int requiredSignatureGrade, int requiredExecutionGrade) : name(name), requiredSignatureGrade(requiredSignatureGrade), requiredExecutionGrade(requiredExecutionGrade)
 {
-	this->setExecutionGrade(requiredExecutionGrade);
-	this->setSignatureGrade(requiredSignatureGrade);
+	if (requiredExecutionGrade < 1 || requiredSignatureGrade < 1)
+		throw GradeTooHighException();
+	if (requiredExecutionGrade > 150 || requiredSignatureGrade > 150)
+		throw GradeTooLowException();
 	this->hasBeenSigned = false;
 }
 
-Form::Form(const Form &other)
+Form::Form(const Form &other) : name(other.getName()), requiredSignatureGrade(other.getSigningGrade()), requiredExecutionGrade(other.getExecutionGrade())
 {
 	*this = other;
 }
 
 Form &Form::operator=(const Form &other)
 {
-	this->name = other.name;
 	this->hasBeenSigned = other.hasBeenSigned;
-	this->requiredSignatureGrade = other.requiredSignatureGrade;
-	this->requiredExecutionGrade = other.requiredExecutionGrade;
 	return (*this);
-}
-
-void			Form::setSignatureGrade(int grade)
-{
-	if (grade < 1)
-		throw GradeTooHighException();
-	if (grade > 150)
-		throw GradeTooLowException();
-	this->requiredSignatureGrade = grade;
-}
-
-void			Form::setExecutionGrade(int grade)
-{
-	if (grade < 1)
-		throw GradeTooHighException();
-	if (grade > 150)
-		throw GradeTooLowException();
-	this->requiredExecutionGrade = grade;
 }
 
 std::ostream	&operator<<(std::ostream &out, const Form &target)

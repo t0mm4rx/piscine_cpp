@@ -23,9 +23,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
-	this->setName(other.getName());
-	this->setSignatureGrade(other.getSigningGrade());
-	this->setExecutionGrade(other.getExecutionGrade());
 	this->target = other.getTarget();
 	return (*this);
 }

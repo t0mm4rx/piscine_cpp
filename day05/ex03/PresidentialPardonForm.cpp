@@ -10,9 +10,6 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &oth
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
-	this->setName(other.getName());
-	this->setSignatureGrade(other.getSigningGrade());
-	this->setExecutionGrade(other.getExecutionGrade());
 	this->target = other.getTarget();
 	return (*this);
 }

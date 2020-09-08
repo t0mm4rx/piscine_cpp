@@ -9,36 +9,34 @@ class Form;
 class Form
 {
 	public:
-		class 		GradeTooHighException : public std::exception
+		class 				GradeTooHighException : public std::exception
 		{
 			public:
 				GradeTooHighException(void);
 				const char *what() const throw();
 		};
-		class 		GradeTooLowException : public std::exception
+		class 				GradeTooLowException : public std::exception
 		{
 			public:
 				GradeTooLowException(void);
 				const char *what() const throw();
 		};
-					Form(std::string name, int requiredSignatureGrade, int requiredExecutionGrade);
-					Form(const Form &other);
-		virtual		~Form(void);
-		Form		&operator=(const Form &other);
-		void		setSignatureGrade(int grade);
-		void		setExecutionGrade(int grade);
-		int			getSigningGrade(void) const;
-		int			getExecutionGrade(void) const;
-		std::string	getName(void) const;
-		void		beSigned(Bureaucrat &bureaucrat);
+							Form(std::string name, int requiredSignatureGrade, int requiredExecutionGrade);
+							Form(const Form &other);
+		virtual				~Form(void);
+		Form				&operator=(const Form &other);
+		int					getSigningGrade(void) const;
+		int					getExecutionGrade(void) const;
+		std::string			getName(void) const;
+		void				beSigned(Bureaucrat &bureaucrat);
 	private:
-		std::string	name;
-		bool		hasBeenSigned;
-		int			requiredSignatureGrade;
-		int			requiredExecutionGrade;
-					Form(void);
+		const std::string	name;
+		bool				hasBeenSigned;
+		const int			requiredSignatureGrade;
+		const int			requiredExecutionGrade;
+							Form(void);
 };
 
-std::ostream		&operator<<(std::ostream &out, const Form &target);
+std::ostream				&operator<<(std::ostream &out, const Form &target);
 
 #endif

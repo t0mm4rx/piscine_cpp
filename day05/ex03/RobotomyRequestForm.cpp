@@ -10,9 +10,6 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : For
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
-	this->setName(other.getName());
-	this->setSignatureGrade(other.getSigningGrade());
-	this->setExecutionGrade(other.getExecutionGrade());
 	this->target = other.getTarget();
 	return (*this);
 }

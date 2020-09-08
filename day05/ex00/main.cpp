@@ -5,7 +5,7 @@ int main(void)
 {
 	Bureaucrat john("John", 27);
 
-	std::cout << john;
+	std::cout << john << std::endl;
 	std::cout << "-- Setting grade to 151 --" << std::endl;
 	try
 	{
@@ -15,7 +15,7 @@ int main(void)
 	{
 		std::cout << "Error when setting grade: " << e.what() << "." << std::endl;
 	}
-	std::cout << john;
+	std::cout << john << std::endl;
 	std::cout << "-- Setting grade to 1. --" << std::endl;
 	try
 	{
@@ -25,7 +25,7 @@ int main(void)
 	{
 		std::cout << "Error when setting grade: " << e.what() << "." << std::endl;
 	}
-	std::cout << john;
+	std::cout << john << std::endl;
 	std::cout << "-- Setting grade to -1. --" << std::endl;
 	try
 	{
@@ -35,7 +35,7 @@ int main(void)
 	{
 		std::cout << "Error when setting grade: " << e.what() << "." << std::endl;
 	}
-	std::cout << john;
+	std::cout << john << std::endl;
 	std::cout << "-- Incrementing grade --" << std::endl;
 	try
 	{
