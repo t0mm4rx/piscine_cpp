@@ -45,7 +45,7 @@ void Bureaucrat::incrementGrade(void)
 
 void Bureaucrat::decrementGrade(void)
 {
-	this->setGrade(this->getGrade() - 1);
+	this->setGrade(this->getGrade() + 1);
 }
 
 void Bureaucrat::signForm(Form &form)
