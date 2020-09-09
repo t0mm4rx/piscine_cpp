@@ -3,6 +3,7 @@
 #include <sstream>
 #include <cctype>
 #include <math.h>
+#include <climits>
 
 void	go(char* src)
 {
@@ -17,9 +18,7 @@ void	go(char* src)
 		strSize++;
 	str = std::string(src, strStart, strSize);
 	if (str.length() == 1 && isprint(str[0]))
-	{
 		k = str[0];
-	}
 	else
 	{
 		try
@@ -52,7 +51,7 @@ void	go(char* src)
 	if (isnan(k))
 		std::cout << "nan";
 	else if (isinf(k))
-		std::cout << "inf";
+		std::cout << (k < 0 ? "-" : "") << "inf";
 	else
 		std::cout << static_cast<float>(k);
 	std::cout << "f" << std::endl;
@@ -60,7 +59,7 @@ void	go(char* src)
 	if (isnan(k))
 		std::cout << "nan" << std::endl;
 	else if (isinf(k))
-		std::cout << "inf" << std::endl;
+		std::cout << (k < 0 ? "-" : "") << "inf" << std::endl;
 	else
 		std::cout << k << std::endl;
 }

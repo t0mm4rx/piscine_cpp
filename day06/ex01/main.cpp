@@ -35,7 +35,7 @@ int		main(void)
 	std::cout << "s2: " << data->s2 << std::endl;
 	std::cout << "n : " << data->n << std::endl;
 
-	delete reinterpret_cast<char*>(addr);
+	delete []reinterpret_cast<char*>(addr);
 	delete data;
 	return (0);
 }
