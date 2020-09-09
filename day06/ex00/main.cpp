@@ -17,7 +17,7 @@ void	go(char* src)
 	while (src[strStart + strSize] && !std::isspace(src[strStart + strSize]))
 		strSize++;
 	str = std::string(src, strStart, strSize);
-	if (str.length() == 1 && isprint(str[0]))
+	if (str.length() == 1 && std::isprint(str[0]) && !std::isdigit(str[0]))
 		k = str[0];
 	else
 	{
@@ -36,7 +36,7 @@ void	go(char* src)
 		}
 	}
 	std::cout << "char:   ";
-	if (k < CHAR_MIN || k > CHAR_MAX)
+	if (k < CHAR_MIN || k > CHAR_MAX || std::isnan(k))
 		std::cout << "impossible" << std::endl;
 	else if (std::isprint(k))
 		std::cout << static_cast<unsigned char>(k) << std::endl;
@@ -48,17 +48,17 @@ void	go(char* src)
 	else
 		std::cout << "impossible " << std::endl;
 	std::cout << "float:  ";
-	if (isnan(k))
+	if (std::isnan(k))
 		std::cout << "nan";
-	else if (isinf(k))
+	else if (std::isinf(k))
 		std::cout << (k < 0 ? "-" : "") << "inf";
 	else
 		std::cout << static_cast<float>(k);
 	std::cout << "f" << std::endl;
 	std::cout << "double: ";
-	if (isnan(k))
+	if (std::isnan(k))
 		std::cout << "nan" << std::endl;
-	else if (isinf(k))
+	else if (std::isinf(k))
 		std::cout << (k < 0 ? "-" : "") << "inf" << std::endl;
 	else
 		std::cout << k << std::endl;
