@@ -8,6 +8,21 @@ Span::Span(unsigned int n) : maxItems(n)
 	this->list.reserve(n);
 }
 
+Span::Span(const Span &other)
+{
+	*this = other;
+}
+
+Span::~Span(void)
+{}
+
+Span &Span::operator=(const Span &other)
+{
+	this->maxItems = other.maxItems;
+	this->list.reserve(this->maxItems);
+	return (*this);
+}
+
 void Span::addNumber(int n)
 {
 	if (this->isInList(n))
@@ -78,4 +93,13 @@ int Span::longestSpan(void)
 		it1++;
 	}
 	return (max);
+}
+
+void Span::addRange(std::vector<int>::iterator start, std::vector<int>::iterator end)
+{
+	while (start != end)
+	{
+		this->addNumber(*start);
+		start++;
+	}
 }
