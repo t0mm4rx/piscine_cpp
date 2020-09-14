@@ -36,7 +36,7 @@ void	go(char* src)
 		}
 	}
 	std::cout << "char:   ";
-	if (k < CHAR_MIN || k > CHAR_MAX || std::isnan(k))
+	if (k < CHAR_MIN || k > CHAR_MAX || isnan(k))
 		std::cout << "impossible" << std::endl;
 	else if (std::isprint(k))
 		std::cout << static_cast<unsigned char>(k) << std::endl;
@@ -48,17 +48,17 @@ void	go(char* src)
 	else
 		std::cout << "impossible " << std::endl;
 	std::cout << "float:  ";
-	if (std::isnan(k))
+	if (isnan(k))
 		std::cout << "nan";
-	else if (std::isinf(k))
+	else if (isinf(k))
 		std::cout << (k < 0 ? "-" : "") << "inf";
 	else
 		std::cout << static_cast<float>(k);
 	std::cout << "f" << std::endl;
 	std::cout << "double: ";
-	if (std::isnan(k))
+	if (isnan(k))
 		std::cout << "nan" << std::endl;
-	else if (std::isinf(k))
+	else if (isinf(k))
 		std::cout << (k < 0 ? "-" : "") << "inf" << std::endl;
 	else
 		std::cout << k << std::endl;
