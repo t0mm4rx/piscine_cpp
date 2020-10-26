@@ -4,7 +4,7 @@ Piscine C++ du nouveau cursus de 42 (2019).
 
 Tous les exos sont compiles avec :
 ```sh
-clang++ -Werror -Wextra -Wall -fsanitize=address -g3 *.cpp
+clang++ -Werror -Wextra -Wall -fsanitize=address -g3 -std=c++98 .cpp
 ```
 
 tmarx
